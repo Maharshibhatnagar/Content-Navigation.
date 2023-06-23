@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Maharshi | Internship Assignment</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins';
+        }
+
+        /* Night Mode */
+        body.night-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-panel {
+            flex: 1;
+            background-color: lightgray;
+            padding: 10px;
+        }
+
+        .left-panel ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .left-panel li {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .left-panel li a {
+            text-decoration: none;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .content {
+            flex: 4;
+            padding: 10px;
+        }
+        .btn{
+            position: absolute;
+            top: 10px;
+            right:30px;
+            font-family: Poppins;
+            padding: 4px;
+            border: 2px solid rgb(79, 76, 76);
+            color: rgb(45, 43, 43);
+            border-radius: 10px;
+            
+        }
+        button{
+            
+                transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+                &:hover {
+                  box-shadow: 0 0 40px 40px#a4a59c inset;
+                }
+        
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        function showContent(contentId) {
+            var contents = document.getElementsByClassName("content");
+            for (var i = 0; i < contents.length; i++) {
+                contents[i].style.display = "none";
+            }
+            document.getElementById(contentId).style.display = "block";
+        }
+
+        function toggleNightMode() {
+            var body = document.body;
+            body.classList.toggle("night-mode");
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <ul>
+                <li><a href="#" onclick="showContent('home')">Home</a></li>
+                <li><a href="#" onclick="showContent('contact')">Contact</a></li>
+                <li><a href="#" onclick="showContent('information')">Information</a></li>
+                <li><a href="#" onclick="showContent('guide')">Guide</a></li>
+            </ul>
+           <div> <button  class="btn"  onclick="toggleNightMode()">Night Mode</button></div>
+        </div>
+        <div class="content" id="home">
+            <h2>Welcome to the Home Page</h2>
+            <p>This is the home page content.</p>
+        </div>
+        <div class="content" id="contact" style="display: none;">
+            <h2>Contact Information</h2>
+            <p>Here you can find our contact details.</p>
+        </div>
+        <div class="content" id="information" style="display: none;">
+            <h2>Information</h2>
+            <p>This section contains useful information.</p>
+        </div>
+        <div class="content" id="guide" style="display: none;">
+            <h2>User Guide</h2>
+            <p>Here is a guide to help you navigate through our website.</p>
+        </div>
+    </div>
+</body>
+</html>
